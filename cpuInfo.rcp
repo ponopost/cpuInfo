@@ -1,0 +1,83 @@
+
+#include "res.h"
+
+VERSION ID 1 "0.4"
+
+FORM ID mainForm AT (0 0 160 160)
+	MENUID mainMenu
+BEGIN
+	TITLE "Preferences"
+	POPUPTRIGGER "" ID mainPanelPickTrigger AT (143 0 17 13) RIGHTANCHOR FONT 0
+	LIST "" ID mainPanelPickList AT (110 1 50 0) NONUSABLE VISIBLEITEMS 1 FONT 0
+	POPUPLIST ID mainPanelPickTrigger mainPanelPickList
+	LABEL "CPU Info" ID mainPanelNameLabel AT (125 1) NONUSABLE FONT 0
+
+	BUTTON "Done" ID mainDoneButton AT (1 147 35 12) NONUSABLE LEFTANCHOR FRAME FONT 0
+
+	label "Processor:" AUTOID at (10 20) font 1
+	field id fieldProcessor at (80 20 70 auto) rightalign font 1 noneditable
+
+	label "Clock Speed:" AUTOID at (10 35) font 1
+	field id fieldCPUClock at (80 35 70 auto) rightalign font 1 noneditable
+
+	label "DRAM:" labelDramWait at (10 50) font 1 nonusable
+	pushbutton "Fast" id buttonDramFast at ( 80 50 34 auto) group 1 nonusable
+	pushbutton "Slow" id buttonDramSlow at (115 50 34 auto) group 1 nonusable
+
+	label "Screen Depth:" labelScrDepth at (10 85) font 1 nonusable
+	field id fieldScrDepth at (110 85 40 auto) rightalign font 1 noneditable nonusable
+
+	label "Battery:" AUTOID at (10 100) font 1
+	field id fieldBattery at (60 100 90 auto) rightalign font 1 noneditable
+
+	label "Warn / Criti:" AUTOID at (10 115) font 1
+	field id fieldBatWarn at (80 115 70 auto) rightalign font 1 noneditable
+
+	label "OS:" AUTOID at (10 130) font 1
+	field id fieldPalmOSVer at (30 130 120 auto) rightalign font 1 noneditable underlined
+END
+
+//	BUTTON "Done" ID mainDoneButton AT (1 147 35 12) NONUSABLE LEFTANCHOR FRAME FONT 0
+
+//	label "PalmOS Version:" AUTOID at (10 130) font 1
+//	field id fieldPalmOSVer at (100 130 50 auto) rightalign font 1 noneditable underlined
+
+//	label "Screen Size:" AUTOID at (10 110) font 1
+//	field id fieldScrSize at (110 110 40 auto) rightalign font 1 noneditable
+
+//	label "Memory:" AUTOID at (10 95) font 1
+//	field id fieldMemSize at (70 95 80 auto) rightalign font 1 noneditable
+
+MENU ID mainMenu
+BEGIN
+	PULLDOWN "Option"
+	BEGIN
+		MENUITEM "Refresh" ID menuRefresh "R"
+		MENUITEM SEPARATOR
+		MENUITEM "About.." ID menuAbout "A"
+	END
+END
+
+ALERT id alertAboutInformation
+	INFORMATION
+	HELPID helpAbout
+BEGIN
+	title	"About"
+	message	"CPU Information"
+	buttons	"OK"
+END
+
+string id helpAbout ""\
+	"CPU Info panel\n"\
+	"\tver.0.4\n"\
+	"\n"\
+	"(c)2001-2002 by pono\n"\
+	"<pono@post.email.ne.jp>\n"\
+	"\n"\
+	"http://www.vector.co.jp/\n"\
+	"authors/VA001529/\n"\
+	"\n"
+//	"\n"\
+//	"Special thanks to:\n"\
+//	"\tSAITO Shukaku"
+
